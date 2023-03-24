@@ -1,0 +1,17 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "Test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "chrome": "npx cypress run -- --browser chrome"
+  },
+  "author": "emmanuel francis",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.8.1",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  }
+}
