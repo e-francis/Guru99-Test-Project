@@ -18,5 +18,7 @@ jobs:
             - ~/.cache/Cypress
       - run: npm run test
       - store_artifacts:
-          path: cypress/results
+          path: test-results
+      - store_test_results:
+          path: test_results/CI_Results
     working_directory: ~/repo

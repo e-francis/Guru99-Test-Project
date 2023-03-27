@@ -32,10 +32,15 @@ describe("Guru99 Test Suite", function () {
   it("Verify user cannot login with invalid credentials", function () {
     cy.get("@userIdInput").type(invalidID);
     cy.get("@passwordInput").type(invalidPassword);
-    cy.get("@loginButton").click();
+
+    cy.on("window:before:load", (win) => {
+      cy.get("@loginButton").click();
+    });
+
     cy.on("window:alert", (str) => {
       expect(str).to.equal("User or Password is not valid");
-      cy.on("window:confirm", () => true);
+
+      cy.get("body").type("{esc}");
     });
   });
 
