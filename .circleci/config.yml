@@ -20,5 +20,5 @@ jobs:
       - store_artifacts:
           path: test-results
       - store_test_results:
-          path: test_results
+          path: test-results
     working_directory: ~/repo
