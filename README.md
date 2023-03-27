@@ -8,7 +8,9 @@ Create a New customer
 Open a new account for the customer.
 Withdraw money from an existing account (Using the account details from the new account)
 
-The test results are stored in the test-results folder in JSON format generated using Mochawesome.
+# Results
+
+The test results are stored in the mochaawesome folder in the test-results in JSON format generated using Mochawesome.
 
 # Installation
 
