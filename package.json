@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run",
-    "chrome": "npx cypress run -- --browser chrome"
+    "chrome": "npx cypress run -- --browser chrome",
+    "chromeTest": "npm  test -- --browser chrome",
+    "chromeHeadlessTest": "npm  test --headless --browser chrome"
   },
   "author": "emmanuel francis",
   "license": "ISC",

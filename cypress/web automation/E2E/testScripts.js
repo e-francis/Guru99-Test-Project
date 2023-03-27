@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
 describe("Guru99 Test Suite", function () {
-  const url = "https://demo.guru99.com/v4/index.php";
   const validID = "mngr487812";
   const invalidID = "17684";
   const validPassword = "bYdyvYj";
@@ -18,7 +17,7 @@ describe("Guru99 Test Suite", function () {
   const withdrawalAmount = "80";
 
   beforeEach(() => {
-    cy.visit(url);
+    cy.visit(Cypress.config("baseUrl"));
     cy.get(":nth-child(1) > :nth-child(2) > input").as("userIdInput");
     cy.get(":nth-child(2) > :nth-child(2) > input").as("passwordInput");
     cy.get('[type="submit"]').as("loginButton");
@@ -63,7 +62,6 @@ describe("Guru99 Test Suite", function () {
   });
 
   it("Verify user can open account for new customer", function () {
-    cy.visit(url);
     cy.get(":nth-child(1) > :nth-child(2) > input").type(validID);
     cy.get(":nth-child(2) > :nth-child(2) > input").type(validPassword);
     cy.get('[type="submit"]').click();
@@ -76,7 +74,6 @@ describe("Guru99 Test Suite", function () {
   });
 
   it("Verify user can withdraw money from an existing account", function () {
-    cy.visit(url);
     cy.get(":nth-child(1) > :nth-child(2) > input").type(validID);
     cy.get(":nth-child(2) > :nth-child(2) > input").type(validPassword);
     cy.get('[type="submit"]').click();
@@ -84,8 +81,8 @@ describe("Guru99 Test Suite", function () {
     cy.get(".menusubnav > :nth-child(9) > a").click();
     cy.get(":nth-child(6) > :nth-child(2) > input").type(customerAccountNumber);
     cy.get(":nth-child(7) > :nth-child(2) > input").type(withdrawalAmount);
+
     it("Verify user can withdraw money from an existing account", function () {
-      cy.visit(url);
       cy.get(":nth-child(1) > :nth-child(2) > input").type(validID);
       cy.get(":nth-child(2) > :nth-child(2) > input").type(validPassword);
       cy.get('[type="submit"]').click();
