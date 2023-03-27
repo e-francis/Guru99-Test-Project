@@ -7,12 +7,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
+            - node-modules-{{ checksum "package.json" }}
+            - cypress-cache-{{ checksum "package-lock.json" }}
+            - cypress-cache-{{ checksum ".circleci/config.yml" }}
       - run: npm install
+      - run: npx cypress install
       - save_cache:
+          key: cypress-cache-{{ checksum "package-lock.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+            - ~/.cache/Cypress
       - run: npm run test
     working_directory: ~/repo
